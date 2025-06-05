@@ -84,7 +84,14 @@ pomodoro () {
     timer ${pomo_options["$val"]}m
 
     # Announce completion
-    spd-say "'$val' session done"
+    # spd-say "'$val' session done"
+    # Next session announcements
+    if [[ "$val" == "break" ]]; then
+    powershell.exe -Command "Add-Type –AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('Initiating next task cycle. Returning to work mode.')"
+    elif [[ "$val" == "work" ]]; then
+    powershell.exe -Command "Add-Type –AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('Work cycle complete. Entering recovery protocol. Please take a break.')"
+    fi
+
   fi
 }
 
