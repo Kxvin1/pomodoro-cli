@@ -9,6 +9,9 @@
 # sudo apt update
 # sudo apt install speech-dispatcher
 
+# install espeak-ng
+# sudo apt install espeak-ng
+
 declare -A pomo_options
 pomo_options["work"]="30"
 pomo_options["break"]="10"
