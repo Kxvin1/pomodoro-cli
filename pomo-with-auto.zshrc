@@ -92,7 +92,7 @@ pomodoro () {
     if [[ "$val" == "break" ]]; then
     powershell.exe -Command "Add-Type –AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('Initiating next task cycle. Returning to work mode.')"
     elif [[ "$val" == "work" ]]; then
-    powershell.exe -Command "Add-Type –AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('Work cycle complete. Entering recovery protocol. Please take a break.')"
+    powershell.exe -Command "Add-Type –AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('Work cycle complete. Entering recovery. Please take a break.')"
     fi
 
   fi
