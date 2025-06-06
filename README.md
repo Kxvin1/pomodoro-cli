@@ -2,6 +2,11 @@
 
 A colorful, feature-rich command-line Pomodoro timer with text-to-speech announcements and auto-cycling capabilities. Perfect for productivity enthusiasts who prefer working in the terminal.
 
+## Screenshots
+
+![Pomodoro gif](./gif-action.mp4)
+![Pomodoro CLI in action2](https://i.imgur.com/csZMS5H.png)
+
 ## ✨ Features
 
 ### Basic Version (`pomo-basic.zshrc`)
