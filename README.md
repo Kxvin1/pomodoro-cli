@@ -2,7 +2,7 @@
 
 A colorful, feature-rich command-line Pomodoro timer with text-to-speech announcements and auto-cycling capabilities. Perfect for productivity enthusiasts who prefer working in the terminal.
 
-## Screenshots
+## Preview
 
 ![Demo](https://i.imgur.com/Ownh25X.gif)
 
