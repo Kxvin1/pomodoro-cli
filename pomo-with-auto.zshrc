@@ -95,7 +95,7 @@ pomo_handle_input() {
 # Calculate and display end time
 pomo_show_end_time() {
     local duration_minutes=$1
-    local end_time=$(date -d "+${duration_minutes} minutes" "+%H:%M")
+    local end_time=$(date -d "+${duration_minutes} minutes" "+%I:%M %p")
     echo "⏰ Expected end time: $end_time" | lolcat
 }
 
