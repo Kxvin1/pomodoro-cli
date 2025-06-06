@@ -1,16 +1,40 @@
-# study stream aliases
-# Requires https://github.com/caarlos0/timer to be installed. spd-say should ship with your distro
-
-# Also requires lolcat --> 
-# sudo apt update
-# sudo apt install lolcat
-
-# and requires spd if you don't have -->
-# sudo apt update
-# sudo apt install speech-dispatcher
-
-# install espeak-ng
-# sudo apt install espeak-ng
+# Pomodoro CLI Timer - Enhanced Version with Auto-Cycling
+#
+# DEPENDENCIES REQUIRED:
+# 1. Timer CLI: https://github.com/caarlos0/timer
+#    Install: go install github.com/caarlos0/timer@latest
+#    Or download from: https://github.com/caarlos0/timer/releases
+#
+# 2. Lolcat (for colorful output):
+#    Linux: sudo apt install lolcat
+#    macOS: brew install lolcat
+#
+# 3. Speech Dispatcher (for text-to-speech on Linux):
+#    Linux: sudo apt install speech-dispatcher
+#    macOS: Uses built-in 'say' command (may need script modification)
+#
+# 4. Espeak-NG (enhanced speech synthesis):
+#    Linux: sudo apt install espeak-ng
+#    macOS: brew install espeak
+#
+# 5. PowerShell (for Windows TTS in WSL):
+#    Usually pre-installed on Windows/WSL
+#
+# INSTALLATION:
+# 1. Install all dependencies above
+# 2. Add to ~/.zshrc: source /path/to/pomo-with-auto.zshrc
+# 3. Reload shell: source ~/.zshrc
+#
+# USAGE:
+# wo  - Start 30-minute work session
+# br  - Start 10-minute break session
+# pc  - Start auto-cycling mode (continuous work/break cycles)
+#
+# FEATURES:
+# - Auto-cycling between work and break sessions
+# - Session numbering and end time display
+# - Enhanced TTS announcements
+# - Cross-platform compatibility (Linux/macOS/Windows WSL)
 
 declare -A pomo_options
 pomo_options["work"]="30"
