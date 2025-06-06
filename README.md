@@ -4,7 +4,7 @@ A colorful, feature-rich command-line Pomodoro timer with text-to-speech announc
 
 ## Screenshots
 
-<video src="https://i.imgur.com/YatHbG5.mp4" autoplay loop muted playsinline width="600"></video>
+![Demo](https://i.imgur.com/Ownh25X.gif)
 
 ![Pomodoro CLI in action2](https://i.imgur.com/csZMS5H.png)
 
