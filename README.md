@@ -1,6 +1,6 @@
 # 🍅 Pomodoro CLI Timer
 
-A colorful, feature-rich command-line Pomodoro timer with text-to-speech announcements and auto-cycling capabilities. Perfect for productivity enthusiasts who prefer working in the terminal.
+A colorful, feature-rich command-line Pomodoro timer with text-to-speech announcements and auto-cycling capabilities. Perfect for productivity enthusiasts who use the terminal. This script runs in the background with no input needed.
 
 ## Preview
 
