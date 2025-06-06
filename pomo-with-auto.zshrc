@@ -52,7 +52,7 @@ pomo_cleanup() {
     if [[ -n "$POMO_TIMER_PID" ]]; then
         kill $POMO_TIMER_PID 2>/dev/null
     fi
-    echo "\n🍅 Pomodoro session interrupted" | lolcat
+    echo "🍅 Pomodoro session interrupted" | lolcat
     POMO_PAUSED=false
     POMO_SKIP=false
     POMO_TIMER_PID=""
@@ -69,13 +69,13 @@ pomo_handle_input() {
             p|P)
                 if [[ "$POMO_PAUSED" == "false" ]]; then
                     POMO_PAUSED=true
-                    echo "\n⏸️  Session paused. Press 'p' to resume..." | lolcat
+                    echo "⏸️  Session paused. Press 'p' to resume..." | lolcat
                     if [[ -n "$POMO_TIMER_PID" ]]; then
                         kill -STOP $POMO_TIMER_PID 2>/dev/null
                     fi
                 else
                     POMO_PAUSED=false
-                    echo "\n▶️  Session resumed!" | lolcat
+                    echo "▶️  Session resumed!" | lolcat
                     if [[ -n "$POMO_TIMER_PID" ]]; then
                         kill -CONT $POMO_TIMER_PID 2>/dev/null
                     fi
@@ -83,7 +83,7 @@ pomo_handle_input() {
                 ;;
             n|N)
                 POMO_SKIP=true
-                echo "\n⏭️  Skipping current session..." | lolcat
+                echo "⏭️  Skipping current session..." | lolcat
                 if [[ -n "$POMO_TIMER_PID" ]]; then
                     kill $POMO_TIMER_PID 2>/dev/null
                 fi
@@ -128,17 +128,17 @@ pomo_cycle() {
     echo "💡 Each session runs normally - use Ctrl+C to stop the cycle" | lolcat
 
     # Set up signal handler
-    trap 'echo "\n🏁 Auto-cycle stopped" | lolcat; return' INT TERM
+    trap 'echo "🏁 Auto-cycle stopped" | lolcat; return' INT TERM
 
     local session_num=1
     while true; do
-        echo "\n--- Session $session_num ---" | lolcat
+        echo "--- Session $session_num ---" | lolcat
 
         # Work session
         echo "Starting work session..." | lolcat
         pomodoro "work"
 
-        echo "\n--- Session $((session_num + 1)) ---" | lolcat
+        echo "--- Session $((session_num + 1)) ---" | lolcat
 
         # Break session
         echo "Starting break session..." | lolcat
@@ -146,7 +146,7 @@ pomo_cycle() {
 
         session_num=$((session_num + 2))
 
-        echo "\n🔄 Continuing cycle... (Ctrl+C to stop)" | lolcat
+        echo "🔄 Continuing cycle... (Ctrl+C to stop)" | lolcat
         sleep 3
     done
 

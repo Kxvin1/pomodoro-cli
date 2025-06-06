@@ -31,8 +31,12 @@ pomodoro () {
   if [ -n "$1" -a -n "${pomo_options["$1"]}" ]; then
   val=$1
   echo $val | lolcat
-  timer ${pomo_options["$val"]}m
-  spd-say "'$val' session done"
+
+  # Start timer and wait for completion
+  if timer ${pomo_options["$val"]}m; then
+      # Timer completed successfully - announce completion
+      spd-say "'$val' session done"
+  fi
   fi
 }
 
