@@ -6,9 +6,9 @@ This script runs in the background with no input needed once started.
 
 ## Preview
 
-![Demo](https://i.imgur.com/Ownh25X.gif)
+![Demo](https://i.imgur.com/wmlZTKK.gif)
 
-![Pomodoro CLI in action2](https://i.imgur.com/csZMS5H.png)
+![Pomodoro CLI in action2](https://i.imgur.com/E3VXcEK.png)
 
 ## ✨ Features
 
