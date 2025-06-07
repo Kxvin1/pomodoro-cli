@@ -30,6 +30,30 @@ This script runs in the background with no input needed once started.
 - ✅ **Cross-platform TTS** - Linux (espeak/spd-say) + Windows (PowerShell)
 - ✅ **Signal handling** - clean exit and session management
 
+## Why Use The Pomodoro Technique?
+
+🧠 **1. Better Focus and Concentration**  
+  Working in short, timed intervals (usually 25 minutes) helps you stay locked in on a single task. Knowing there's a break coming reduces mental resistance.
+
+🛌 **2. Reduces Mental Fatigue**  
+  Frequent breaks (5 minutes after each session, longer after four) prevent burnout and help your brain reset, especially during long workdays.
+
+🚀 **3. Helps You Start Tasks You’re Avoiding**  
+  Committing to "just 25 minutes" feels manageable, making it easier to beat procrastination and overcome task inertia.
+
+⏱️ **4. Tracks Time and Boosts Awareness**  
+  Each Pomodoro is a unit of time you can measure. Over time, it helps you understand how long things really take and manage your time more realistically.
+
+🎯 **5. Encourages Single-tasking**  
+  It forces you to commit to one task per session, helping you avoid the productivity drain of multitasking.
+
+🏆 **6. Builds a Sense of Accomplishment**  
+  Each completed Pomodoro is a small win, giving you a mental reward and momentum to keep going.
+
+⚖️ **7. Improves Work-Life Balance**  
+  By structuring your day into focused work blocks and scheduled breaks, it prevents overworking and encourages healthier rhythms.
+
+
 ## 📋 Prerequisites
 
 ### Required Tools
