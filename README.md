@@ -159,21 +159,19 @@ Download `pomo-basic.zshrc` and `pomo-with-auto.zshrc` from the repository.
 **For Basic Timer:**
 
 ```bash
-# Add to your ~/.zshrc file
-echo "source $(pwd)/pomo-basic.zshrc" >> ~/.zshrc
+# If you're using Zsh or Bash, run this to start the timer
+source ./pomo-basic.zshrc
 
-# Reload your shell configuration
-source ~/.zshrc
+# Refer to usage commands below for usage under 'Usage'
 ```
 
 **For Enhanced Timer:**
 
 ```bash
-# Add to your ~/.zshrc file
-echo "source $(pwd)/pomo-with-auto.zshrc" >> ~/.zshrc
+# If you're using Zsh or Bash, run this to start the timer
+source ./pomo-with-auto.zshrc
 
-# Reload your shell configuration
-source ~/.zshrc
+# Refer to usage commands below for usage under 'Usage'
 ```
 
 **Note**: You can switch between versions anytime by commenting out one source line and uncommenting the other in your `~/.zshrc`.
