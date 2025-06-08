@@ -28,7 +28,6 @@ This script runs in the background with no input needed once started.
 - ✅ **End time calculation** - shows when current session will finish
 - ✅ **Enhanced TTS** - different announcements for work/break transitions
 - ✅ **Cross-platform TTS** - Linux (espeak/spd-say) + Windows (PowerShell)
-- ✅ **Signal handling** - clean exit and session management
 
 ## Why Use The Pomodoro Technique?
 
