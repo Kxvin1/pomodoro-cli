@@ -458,12 +458,15 @@ chsh -s $(which zsh)
 
 ### Compatibility Notes
 
-- **Shell Compatibility**: Designed specifically for Zsh. May not work properly in Bash or other shells.
+- **Shell Compatibility**:
+  - ✅ Bash (fully supported – default on most Linux systems, including WSL)
+  - ✅ Zsh (fully supported – originally written with Zsh syntax, but Bash-compatible)
+  - ⚠️ Other shells (e.g., fish, tcsh): not tested and likely incompatible
 - **OS Compatibility**:
   - ✅ Linux (Full support)
-  - ✅ macOS (May need TTS modifications)
-  - ✅ Windows WSL (Full support)
-  - ❌ Windows Command Prompt/PowerShell (Not supported)
+  - ✅ macOS (TTS may need slight script tweaks — uses say instead of spd-say or PowerShell)
+  - ✅ Windows (WSL) (Full support using PowerShell for TTS)
+  - ❌ Windows Command Prompt/PowerShell directly (Not supported — use WSL instead)
 
 ## 🎯 Tips for Best Results
 
