@@ -1,6 +1,6 @@
 # 🍅 Pomodoro CLI Timer
 
-A colorful, feature-rich command-line Pomodoro timer with text-to-speech announcements and auto-cycling capabilities. Perfect for productivity enthusiasts who use the terminal. 
+A colorful, feature-rich command-line Pomodoro timer with text-to-speech announcements and auto-cycling capabilities. Perfect for productivity enthusiasts who use the terminal.
 
 This script runs in the background with no input needed once started.
 
@@ -17,6 +17,8 @@ This script runs in the background with no input needed once started.
 - ✅ Simple work/break timer functionality
 - ✅ Colorful output with `lolcat`
 - ✅ Text-to-speech announcements
+- ✅ Session completion tracking and statistics
+- ✅ Motivational summary displays
 - ✅ Lightweight and minimal
 - ✅ Perfect for users who prefer manual session control
 
@@ -28,30 +30,32 @@ This script runs in the background with no input needed once started.
 - ✅ **End time calculation** - shows when current session will finish
 - ✅ **Enhanced TTS** - different announcements for work/break transitions
 - ✅ **Cross-platform TTS** - Linux (espeak/spd-say) + Windows (PowerShell)
+- ✅ **Session completion tracking** - tracks completed vs interrupted sessions
+- ✅ **Productivity statistics** - historical session counts with motivational messages
+- ✅ **Exit summaries** - automatic summary display when stopping sessions
 
 ## Why Use The Pomodoro Technique?
 
 🧠 **1. Better Focus and Concentration**  
-  Working in short, timed intervals (usually 25 minutes) helps you stay locked in on a single task. Knowing there's a break coming reduces mental resistance.
+ Working in short, timed intervals (usually 25 minutes) helps you stay locked in on a single task. Knowing there's a break coming reduces mental resistance.
 
 🛌 **2. Reduces Mental Fatigue**  
-  Frequent breaks (5 minutes after each session, longer after four) prevent burnout and help your brain reset, especially during long workdays.
+ Frequent breaks (5 minutes after each session, longer after four) prevent burnout and help your brain reset, especially during long workdays.
 
 🚀 **3. Helps You Start Tasks You’re Avoiding**  
-  Committing to "just 25 minutes" feels manageable, making it easier to beat procrastination and overcome task inertia.
+ Committing to "just 25 minutes" feels manageable, making it easier to beat procrastination and overcome task inertia.
 
 ⏱️ **4. Tracks Time and Boosts Awareness**  
-  Each Pomodoro is a unit of time you can measure. Over time, it helps you understand how long things really take and manage your time more realistically.
+ Each Pomodoro is a unit of time you can measure. Over time, it helps you understand how long things really take and manage your time more realistically.
 
 🎯 **5. Encourages Single-tasking**  
-  It forces you to commit to one task per session, helping you avoid the productivity drain of multitasking.
+ It forces you to commit to one task per session, helping you avoid the productivity drain of multitasking.
 
 🏆 **6. Builds a Sense of Accomplishment**  
-  Each completed Pomodoro is a small win, giving you a mental reward and momentum to keep going.
+ Each completed Pomodoro is a small win, giving you a mental reward and momentum to keep going.
 
 ⚖️ **7. Improves Work-Life Balance**  
-  By structuring your day into focused work blocks and scheduled breaks, it prevents overworking and encourages healthier rhythms.
-
+ By structuring your day into focused work blocks and scheduled breaks, it prevents overworking and encourages healthier rhythms.
 
 ## 📋 Prerequisites
 
@@ -201,6 +205,24 @@ pc
 # Use Ctrl+C to stop
 ```
 
+#### Session Statistics
+
+```bash
+summary
+# Shows productivity statistics including:
+# - Current session completion count
+# - Total historical session count
+# - Motivational messages based on progress
+```
+
+#### Reset Session History
+
+```bash
+reset-pomo
+# Resets all session history with confirmation prompt
+# Use this to start fresh or clear old data
+```
+
 ### Example Usage Session
 
 ```bash
@@ -209,12 +231,30 @@ $ wo
 work
 ⏰ Expected end time: 14:30
 Timer: 30m 0s
+✅ Session completed and recorded!
 
 # After work session completes, take a break
 $ br
 break
 ⏰ Expected end time: 14:40
 Timer: 10m 0s
+✅ Session completed and recorded!
+
+# Check your productivity statistics
+$ summary
+📈 Fetching your productivity statistics...
+
+🍅 ═══════════════════════════════════════════════════════ 🍅
+                    POMODORO SUMMARY
+🍅 ═══════════════════════════════════════════════════════ 🍅
+
+📊 Current Session: 2 completed
+🏆 Total Historical: 15 completed
+
+💪 You're developing excellent focus habits!
+
+💡 Each completed session brings you closer to your goals!
+🍅 ═══════════════════════════════════════════════════════ 🍅
 
 # Or use auto-cycling for continuous sessions
 $ pc
@@ -225,6 +265,53 @@ $ pc
 Starting work session...
 work
 ⏰ Expected end time: 14:30
+```
+
+## 📊 Session Tracking & Statistics
+
+Both versions now include comprehensive session tracking to help you monitor your productivity progress:
+
+### How Session Tracking Works
+
+- **Completion Detection**: Only sessions that run for their full duration are counted as "completed"
+- **Interrupted Sessions**: Sessions stopped early (Ctrl+C) are not counted toward your totals
+- **Persistent Storage**: Session counts are stored in `~/.pomo_sessions.dat` and persist across terminal sessions
+- **Current vs Historical**: Track both your current session's completions and your all-time total
+
+### Automatic Features
+
+- **Exit Summary**: When you stop the timer or auto-cycle mode, you'll see a summary of completed sessions
+- **Session Confirmation**: Each completed session shows a confirmation message
+- **Motivational Messages**: Progress-based encouragement based on your total session count
+
+### Statistics Levels
+
+- **🌱 Beginner** (0 sessions): Ready to start your productivity journey!
+- **🚀 Getting Started** (1-4 sessions): Great start! Keep building that focus muscle!
+- **💪 Developing** (5-24 sessions): You're developing excellent focus habits!
+- **🔥 Champion** (25-99 sessions): Impressive dedication! You're a productivity champion!
+- **🏅 Master** (100+ sessions): Legendary focus master! Your discipline is inspiring!
+
+### Data Management
+
+- **Storage Location**: Session data is stored in your home directory: `~/.pomo_sessions.dat`
+- **File Format**: Simple text file containing a single number (total completed work sessions)
+- **Persistence**: Data survives terminal restarts, system reboots, and script reloads
+- **Current vs Historical**:
+  - **Current Session**: Resets each time you start a new terminal session
+  - **Historical Total**: Persists forever until manually reset
+
+#### Resetting Your Data
+
+```bash
+# Easy way (with confirmation prompt)
+reset-pomo
+
+# Manual way (immediate reset)
+rm ~/.pomo_sessions.dat
+
+# Or reset to specific number
+echo "50" > ~/.pomo_sessions.dat
 ```
 
 ## ⚙️ Configuration
