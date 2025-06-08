@@ -34,7 +34,6 @@ This script runs in the background with no input needed once started.
 - ✅ **Cross-platform TTS** - Linux (espeak/spd-say) + Windows (PowerShell)
 - ✅ **Session completion tracking** - tracks completed vs interrupted sessions
 - ✅ **Productivity statistics** - historical session counts with motivational messages
-- ✅ **Exit summaries** - automatic summary display when stopping sessions
 
 ## Why Use The Pomodoro Technique?
 
@@ -282,7 +281,6 @@ Both versions now include comprehensive session tracking to help you monitor you
 
 ### Automatic Features
 
-- **Exit Summary**: When you stop the timer or auto-cycle mode, you'll see a summary of completed sessions
 - **Session Confirmation**: Each completed session shows a confirmation message
 - **Motivational Messages**: Progress-based encouragement based on your total session count
 
