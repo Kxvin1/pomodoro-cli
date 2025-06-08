@@ -41,8 +41,8 @@
 # - Cross-platform compatibility (Linux/macOS/Windows WSL)
 
 declare -A pomo_options
-pomo_options["work"]="1"
-pomo_options["break"]="1"
+pomo_options["work"]="30"
+pomo_options["break"]="10"
 
 # Session tracking variables
 POMO_DATA_FILE="$HOME/.pomo_sessions.dat"
@@ -179,13 +179,11 @@ pomo_cycle() {
         echo "Starting work session..." | lolcat
         pomodoro "work"
 
-        echo "--- Session $((session_num + 1)) ---" | lolcat
-
-        # Break session
+        # Break session (same session number)
         echo "Starting break session..." | lolcat
         pomodoro "break"
 
-        session_num=$((session_num + 2))
+        session_num=$((session_num + 1))
 
         echo "🔄 Continuing cycle... (Ctrl+C to stop, then type 'summary' to see your stats)" | lolcat
         sleep 3
