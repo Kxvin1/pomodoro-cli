@@ -40,58 +40,6 @@ declare -A pomo_options
 pomo_options["work"]="30"
 pomo_options["break"]="10"
 
-# Global variables for enhanced pomodoro functionality
-POMO_PAUSED=false
-POMO_SKIP=false
-POMO_TIMER_PID=""
-POMO_AUTO_CYCLE=false
-POMO_CURRENT_SESSION=""
-
-# Signal handlers for clean exit and pause/resume
-pomo_cleanup() {
-    if [[ -n "$POMO_TIMER_PID" ]]; then
-        kill $POMO_TIMER_PID 2>/dev/null
-    fi
-    echo "🍅 Pomodoro session interrupted" | lolcat
-    POMO_PAUSED=false
-    POMO_SKIP=false
-    POMO_TIMER_PID=""
-    POMO_AUTO_CYCLE=false
-    # Kill any background jobs
-    jobs -p | xargs -r kill 2>/dev/null
-    exit 0
-}
-
-pomo_handle_input() {
-    # Use a simpler approach that doesn't interfere with job control
-    if read -t 0.1 -k 1 key 2>/dev/null; then
-        case $key in
-            p|P)
-                if [[ "$POMO_PAUSED" == "false" ]]; then
-                    POMO_PAUSED=true
-                    echo "⏸️  Session paused. Press 'p' to resume..." | lolcat
-                    if [[ -n "$POMO_TIMER_PID" ]]; then
-                        kill -STOP $POMO_TIMER_PID 2>/dev/null
-                    fi
-                else
-                    POMO_PAUSED=false
-                    echo "▶️  Session resumed!" | lolcat
-                    if [[ -n "$POMO_TIMER_PID" ]]; then
-                        kill -CONT $POMO_TIMER_PID 2>/dev/null
-                    fi
-                fi
-                ;;
-            n|N)
-                POMO_SKIP=true
-                echo "⏭️  Skipping current session..." | lolcat
-                if [[ -n "$POMO_TIMER_PID" ]]; then
-                    kill $POMO_TIMER_PID 2>/dev/null
-                fi
-                ;;
-        esac
-    fi
-}
-
 # Calculate and display end time
 pomo_show_end_time() {
     local duration_minutes=$1
@@ -99,7 +47,7 @@ pomo_show_end_time() {
     echo "⏰ Expected end time: $end_time" | lolcat
 }
 
-# Simplified pomodoro function - back to basics
+# Main pomodoro function with enhanced TTS
 pomodoro () {
   if [ -n "$1" -a -n "${pomo_options["$1"]}" ]; then
     val=$1
@@ -110,9 +58,7 @@ pomodoro () {
     # Start timer and wait for completion
     timer ${pomo_options["$val"]}m
 
-    # Announce completion
-    # spd-say "'$val' session done"
-    # Next session announcements
+    # Announce completion with enhanced TTS
     if [[ "$val" == "break" ]]; then
     powershell.exe -Command "Add-Type –AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('Initiating next task cycle. Returning to work mode.')"
     elif [[ "$val" == "work" ]]; then
@@ -122,7 +68,7 @@ pomodoro () {
   fi
 }
 
-# Simple auto-cycle that actually works - no complex input handling
+# Auto-cycle function for continuous work/break sessions
 pomo_cycle() {
     echo "🔄 Starting auto-cycle pomodoro" | lolcat
     echo "💡 Each session runs normally - use Ctrl+C to stop the cycle" | lolcat
